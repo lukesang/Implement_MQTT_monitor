@@ -24,7 +24,7 @@ var k=setInterval(function(){reques.emit('start');},100000);
 
 reques.on('start',function(){
 				request(smartxlab_content, function(error, response, body) {
-
+				  console.log(body);
 				  obj = JSON.parse(body);
 				  console.log(obj.res.token);
 				  Password_token=obj.res.token;
@@ -39,11 +39,11 @@ reques.on('start',function(){
 
 
 				client.on('connect', function () {
-				  client.subscribe('ntut/186',function(){
+				  client.subscribe('5770e83c10ecf32ba46e862f/4f1000000000000000000000_D',function(){
 						client.on('message', function (topic, message) {
 					  // message is Buffer 
 					  console.log(message.toString());
-					  client.end();
+					  
 					});
 				  });
 				});
